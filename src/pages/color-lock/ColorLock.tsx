@@ -21,6 +21,11 @@ export default function ColorLock() {
     setColors([...colors]);
   }
 
+  function removeColor(i: number) {
+    colors.splice(i, 1);
+    setColors([...colors]);
+  }
+
   return (
     <div className="color-lock-page">
       <h1>Color Lock</h1>
@@ -32,6 +37,7 @@ export default function ColorLock() {
               color={color}
               key={i}
               changeColor={(color: string) => changeColor(color, i)}
+              removeColor={(i: number) => removeColor(i)}
             />
           );
         })}

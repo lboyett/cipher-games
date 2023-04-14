@@ -18,24 +18,32 @@ interface ColorPickerProps {
   color: string;
   i: number;
   changeColor: Function;
+  removeColor: Function;
 }
 
-export default function ColorPicker({
-  color,
-  i,
-  changeColor,
-}: ColorPickerProps) {
+export default function ColorPicker(props: ColorPickerProps) {
   const [isOpen, setIsOpen] = useState(false);
+
   function setColor(color: string) {
-    changeColor(color);
+    props.changeColor(color);
+  }
+
+  function removeColor(index: number) {
+    props.removeColor(index);
   }
 
   return (
     <li key={uniqid()} className="color-picker-li">
-      <FontAwesomeIcon icon={faXmark} size="2xs" onClick={() => {}} />
+      <FontAwesomeIcon
+        icon={faXmark}
+        size="2xs"
+        onClick={() => {
+          removeColor(props.i);
+        }}
+      />
       <div
         className="color-div"
-        style={{ background: `${color}` }}
+        style={{ background: `${props.color}` }}
         onClick={() => {
           setIsOpen(true);
         }}
@@ -46,13 +54,13 @@ export default function ColorPicker({
           setIsOpen(!isOpen);
         }}
         setColor={(color: string) => setColor(color)}
-        initialColor={color}
+        initialColor={props.color}
       />
       <h2
         onClick={() => {
           setIsOpen(true);
         }}
-      >{`${color}`}</h2>
+      >{`${props.color}`}</h2>
     </li>
   );
 }
