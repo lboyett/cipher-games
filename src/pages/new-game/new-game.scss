@@ -26,6 +26,9 @@
       background: #404385;
       width: clamp(250px, 50%, 400px);
     }
+    li:hover {
+      cursor: pointer;
+    }
   }
   .header-div:before {
     content: "";

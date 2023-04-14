@@ -1,0 +1,46 @@
+.text-lock-page {
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+    border: 5px solid #404385;
+    border-radius: 15px;
+    width: clamp(310px, 90%, 500px);
+    margin: 2rem auto;
+    padding: 1rem;
+    font-weight: 600;
+  }
+  .content {
+    padding: 1rem;
+    width: clamp(320px, 100%, 600px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    .inputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+      justify-items: center;
+      gap: 1rem;
+      input {
+        color: black;
+        background: white;
+        width: 5rem;
+        height: 5rem;
+        border: 1px solid gray;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 3rem;
+      }
+    }
+    .icon {
+      margin: 2rem;
+    }
+    .icon:hover {
+      cursor: pointer;
+    }
+    button {
+      border: 1px solid;
+      margin: 0 auto;
+    }
+  }
+}

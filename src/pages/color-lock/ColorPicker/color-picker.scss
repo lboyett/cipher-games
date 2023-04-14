@@ -1,0 +1,26 @@
+.color-picker-li {
+  padding: 0 1rem;
+  font-size: 3rem;
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  align-items: center;
+  justify-items: center;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+  h2 {
+    font-size: 1.75rem;
+    cursor: pointer;
+  }
+  .color-div {
+    cursor: pointer;
+    height: 50px;
+    width: 80%;
+    border-radius: 100px;
+    border: 1px solid gray;
+  }
+}
+
+.chrome-picker input {
+  background-color: white !important;
+}
