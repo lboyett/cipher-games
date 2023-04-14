@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import uniqid from "uniqid";
 
@@ -11,17 +11,25 @@ export default function TextLock() {
   const initialChars = ["A", "B", "C", "D", "E"];
   const [chars, setChars] = useState<string[]>(initialChars);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>, i: number) {
     const regex = new RegExp(/[A-Za-z0-9]+/);
     if (!regex.test(e.target.value)) {
       e.target.value = "";
       return;
     }
-    e.target.value = e.target.value.toUpperCase();
+    const char = e.target.value.toUpperCase();
+    e.target.value = char;
+    chars[i] = char;
+    setChars([...chars]);
   }
 
   function addNewText() {
     chars.push("A");
+    setChars([...chars]);
+  }
+
+  function removeText(i: number) {
+    chars.splice(i, 1);
     setChars([...chars]);
   }
 
@@ -32,13 +40,19 @@ export default function TextLock() {
         <div className="inputs">
           {chars.map((char, i) => {
             return (
-              <input
-                key={uniqid()}
-                minLength={1}
-                maxLength={1}
-                defaultValue={char}
-                onChange={(e) => handleChange(e)}
-              />
+              <div key={uniqid()} className="input-div">
+                <FontAwesomeIcon
+                  icon={faCircleMinus}
+                  className="remove-icon"
+                  onClick={() => removeText(i)}
+                />
+                <input
+                  minLength={1}
+                  maxLength={1}
+                  defaultValue={char}
+                  onChange={(e) => handleChange(e, i)}
+                />
+              </div>
             );
           })}
         </div>

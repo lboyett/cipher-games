@@ -21,15 +21,24 @@
       grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
       justify-items: center;
       gap: 1rem;
-      input {
-        color: black;
-        background: white;
-        width: 5rem;
-        height: 5rem;
-        border: 1px solid gray;
-        border-radius: 15px;
-        text-align: center;
-        font-size: 3rem;
+      .input-div {
+        position: relative;
+        input {
+          color: black;
+          background: white;
+          width: 5rem;
+          height: 5rem;
+          border: 1px solid gray;
+          border-radius: 15px;
+          text-align: center;
+          font-size: 3rem;
+        }
+        .remove-icon {
+          position: absolute;
+          color: #a80000;
+          right: 0;
+          transform: translate(10%, -10%);
+        }
       }
     }
     .icon {
