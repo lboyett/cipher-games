@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,9 +10,10 @@ import ContinueButton from "../../components/continue-button/ContinueButton";
 export default function ColorLock() {
   const initialColors = ["#FF0000", "#00FF00", "#0000FF"];
   const [colors, setColors] = useState<string[]>(initialColors);
+  const [addButtonDisplay, setAddButtonDisplay] = useState<string>("auto");
 
   function addNewColor() {
-    colors.push("#FFFFFF");
+    colors.push("#FF0000");
     setColors([...colors]);
   }
 
@@ -25,6 +26,14 @@ export default function ColorLock() {
     colors.splice(i, 1);
     setColors([...colors]);
   }
+
+  useEffect(() => {
+    if (colors.length >= 5) {
+      setAddButtonDisplay("none");
+    } else {
+      setAddButtonDisplay("inline");
+    }
+  }, [colors]);
 
   return (
     <div className="color-lock-page">
@@ -45,11 +54,12 @@ export default function ColorLock() {
           icon={faCirclePlus}
           size="3x"
           className="icon"
+          style={{ display: addButtonDisplay }}
           onClick={() => {
             addNewColor();
           }}
         />
-        <ContinueButton />
+        <ContinueButton navigate={"/new-game-settings"} />
         <CancelButton />
       </ol>
     </div>

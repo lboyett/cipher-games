@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: clamp(200px, 80%, 300px);
+  margin: 0 auto;
+  padding: 3rem 0;
+  label {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  input {
+    background: white;
+    border-radius: 5px;
+    height: 2rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 1.5rem !important;
+  }
+  button {
+    width: max-content;
+  }
+}

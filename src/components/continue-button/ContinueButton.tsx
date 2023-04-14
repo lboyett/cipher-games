@@ -4,10 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 import "./continue-button.scss";
 
-export default function ContinueButton() {
+interface ContinueButtonProps {
+  navigate: string;
+}
+
+export default function ContinueButton(props: ContinueButtonProps) {
   const navigate = useNavigate();
   return (
-    <button className="continue-button" onClick={() => navigate("/games")}>
+    <button
+      className="continue-button"
+      onClick={() => navigate(props.navigate)}
+    >
       <h3>Continue</h3>
       <FontAwesomeIcon icon={faRightLong} />
     </button>

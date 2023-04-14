@@ -47,7 +47,9 @@ export default function ColorPicker(props: ColorPickerProps) {
         onClick={() => {
           setIsOpen(true);
         }}
-      />
+      >
+        <div>{props.i + 1}</div>
+      </div>
       <ChakraModal
         isOpen={isOpen}
         setIsOpen={() => {

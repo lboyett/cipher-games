@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { faCirclePlus, faCircleMinus } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import uniqid from "uniqid";
 
@@ -42,7 +42,7 @@ export default function TextLock() {
             return (
               <div key={uniqid()} className="input-div">
                 <FontAwesomeIcon
-                  icon={faCircleMinus}
+                  icon={faXmark}
                   className="remove-icon"
                   onClick={() => removeText(i)}
                 />
@@ -64,7 +64,7 @@ export default function TextLock() {
             addNewText();
           }}
         />
-        <ContinueButton />
+        <ContinueButton navigate={"text-settings"} />
         <CancelButton />
       </div>
     </div>
