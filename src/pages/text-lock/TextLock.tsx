@@ -10,6 +10,7 @@ import ContinueButton from "../../components/continue-button/ContinueButton";
 export default function TextLock() {
   const initialChars = ["A", "B", "C", "D", "E"];
   const [chars, setChars] = useState<string[]>(initialChars);
+  const [addButtonDisplay, setAddButtonDisplay] = useState<string>("inline");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>, i: number) {
     const regex = new RegExp(/[A-Za-z0-9]+/);
@@ -32,6 +33,15 @@ export default function TextLock() {
     chars.splice(i, 1);
     setChars([...chars]);
   }
+
+  useEffect(() => {
+    if (chars.length > 9) {
+      setAddButtonDisplay("none");
+      console.log("h");
+    } else {
+      setAddButtonDisplay("inline");
+    }
+  }, [chars]);
 
   return (
     <div className="text-lock-page">
@@ -63,8 +73,9 @@ export default function TextLock() {
           onClick={() => {
             addNewText();
           }}
+          style={{ display: addButtonDisplay }}
         />
-        <ContinueButton navigate={"text-settings"} />
+        <ContinueButton navigate={"/new-game-settings"} type="text" />
         <CancelButton />
       </div>
     </div>

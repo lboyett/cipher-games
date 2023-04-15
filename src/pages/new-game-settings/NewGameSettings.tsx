@@ -2,8 +2,9 @@ import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import PinInput from "react-pin-input";
-import { faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation } from "react-router-dom";
 
 import BackButton from "../../components/back-button/BackButton";
 import "./new-game-settings.scss";
@@ -19,6 +20,7 @@ export default function NewGameSettings() {
     setError,
     formState: { errors },
   } = useForm<GameType>();
+  const location = useLocation();
 
   const pinComponentStyle = {
     display: "flex",
@@ -33,7 +35,7 @@ export default function NewGameSettings() {
   };
   const onSubmit: SubmitHandler<GameType> = (data) => {
     mockGamesData.addGame = data;
-    console.log(mockGamesData.getGames);
+    console.log(mockGamesData);
   };
 
   return (
@@ -54,10 +56,10 @@ export default function NewGameSettings() {
         }}
       />
       <input value={pin} minLength={4} type="hidden" {...register("pin")} />
-      <input value={"color"} type="hidden" {...register("type")} />
+      <input value={location.state.type} type="hidden" {...register("type")} />
       <Button type="submit" className="create-button">
         Create
-        <FontAwesomeIcon icon={faRightLong} />
+        <FontAwesomeIcon icon={faArrowRightToBracket} />
       </Button>
       <BackButton />
     </form>

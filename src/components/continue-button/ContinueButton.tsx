@@ -6,6 +6,7 @@ import "./continue-button.scss";
 
 interface ContinueButtonProps {
   navigate: string;
+  type: string;
 }
 
 export default function ContinueButton(props: ContinueButtonProps) {
@@ -13,7 +14,7 @@ export default function ContinueButton(props: ContinueButtonProps) {
   return (
     <button
       className="continue-button"
-      onClick={() => navigate(props.navigate)}
+      onClick={() => navigate(props.navigate, { state: { type: props.type } })}
     >
       <h3>Continue</h3>
       <FontAwesomeIcon icon={faRightLong} />

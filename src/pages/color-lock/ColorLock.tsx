@@ -59,7 +59,7 @@ export default function ColorLock() {
             addNewColor();
           }}
         />
-        <ContinueButton navigate={"/new-game-settings"} />
+        <ContinueButton navigate={"/new-game-settings"} type="color" />
         <BackButton />
       </ol>
     </div>
