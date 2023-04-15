@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./new-game.scss";
-import CancelButton from "../../components/cancel-button/CancelButton";
+import BackButton from "../../components/back-button/BackButton";
 import { useNavigate } from "react-router-dom";
 
 export default function NewGame() {
@@ -29,7 +29,7 @@ export default function NewGame() {
           <h2>Custom</h2>
           <FontAwesomeIcon icon={faClipboard} />
         </li>
-        <CancelButton />
+        <BackButton />
       </ul>
     </div>
   );

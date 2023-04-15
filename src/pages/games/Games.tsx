@@ -25,7 +25,7 @@ export default function Games() {
     <div className="games-page">
       <h1>Games</h1>
       <ul className="games-ul">
-        {mockGamesData.map((game) => {
+        {mockGamesData.getGames.map((game) => {
           const typeClassName = assignClassNameToType(game.type);
           return (
             <li key={`${game.name}`} onClick={() => {}}>

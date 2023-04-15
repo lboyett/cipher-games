@@ -1,4 +1,4 @@
-form {
+.new-game-form {
   display: flex;
   flex-direction: column;
   width: clamp(200px, 80%, 300px);
@@ -18,6 +18,26 @@ form {
     margin-bottom: 1.5rem !important;
   }
   button {
-    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 250px;
+    border: 1px solid white;
+    border-radius: 100px;
+    font-size: 2rem;
+    margin: 1rem auto;
   }
+  .create-button {
+    padding: 2.5rem;
+    background: #065b04;
+  }
+  .create-button:hover {
+    background: #065b04;
+  }
+}
+
+::placeholder {
+  color: gray !important;
+  opacity: 1; /* Firefox */
 }

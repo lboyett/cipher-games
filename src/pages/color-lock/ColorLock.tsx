@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./color-lock.scss";
 import ColorPicker from "./ColorPicker/ColorPicker";
-import CancelButton from "../../components/cancel-button/CancelButton";
+import BackButton from "../../components/back-button/BackButton";
 import ContinueButton from "../../components/continue-button/ContinueButton";
 
 export default function ColorLock() {
@@ -60,7 +60,7 @@ export default function ColorLock() {
           }}
         />
         <ContinueButton navigate={"/new-game-settings"} />
-        <CancelButton />
+        <BackButton />
       </ol>
     </div>
   );

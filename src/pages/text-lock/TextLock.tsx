@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import uniqid from "uniqid";
 
 import "./text-lock.scss";
-import CancelButton from "../../components/cancel-button/CancelButton";
+import CancelButton from "../../components/back-button/BackButton";
 import ContinueButton from "../../components/continue-button/ContinueButton";
 
 export default function TextLock() {
