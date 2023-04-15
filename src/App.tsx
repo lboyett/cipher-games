@@ -8,7 +8,7 @@ import NewGameSettings from "./pages/new-game-settings/NewGameSettings";
 import NewGame from "./pages/new-game/NewGame";
 import TextLock from "./pages/text-lock/TextLock";
 
-function App() {
+export default function App() {
   return (
     <div className="app">
       <Routes>
@@ -22,5 +22,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

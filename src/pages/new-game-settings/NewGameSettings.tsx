@@ -35,7 +35,7 @@ export default function NewGameSettings() {
   };
   const onSubmit: SubmitHandler<GameType> = (data) => {
     mockGamesData.addGame = data;
-    console.log(mockGamesData);
+    console.log(location.state);
   };
 
   return (
@@ -56,7 +56,11 @@ export default function NewGameSettings() {
         }}
       />
       <input value={pin} minLength={4} type="hidden" {...register("pin")} />
-      <input value={location.state.type} type="hidden" {...register("type")} />
+      <input
+        value={location.state ? location.state : "color"}
+        type="hidden"
+        {...register("type")}
+      />
       <Button type="submit" className="create-button">
         Create
         <FontAwesomeIcon icon={faArrowRightToBracket} />
